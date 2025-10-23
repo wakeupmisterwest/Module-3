@@ -1,0 +1,40 @@
+class Vehicle:
+    def __init__(self, type):
+        self.type = type
+    
+class Automobile(Vehicle):
+    def __init__(self, type, year, make, model, doors, roof):
+        super().__init__(type)
+        self.year = year
+        self.make = make
+        self.model = model
+        self.doors = doors
+        self.roof = roof
+
+type = "car"
+year = input("Enter the year: ")
+make = input("Enter the make: ")
+model = input("Enter the model: ")
+
+while True:
+    doors = input("Enter the number of doors (2/4): ")
+    if doors in ["2","4"]:
+        break
+    else:
+        print("Please enter '2' or '4'.")
+
+while True:
+    roof = input("Enter the roof type (solid or sun roof): ").lower()
+    if roof in ["solid", "sun roof"]:
+        break
+    else:
+        print("Please enter 'solid' or 'sunroof'.")
+
+car = Automobile(type, year, make, model, doors, roof)
+
+print(f"\nVehicle Type: {car.type}")
+print(f"Year: {car.year}")
+print(f"Make: {car.make}")
+print(f"Model: {car.model}")
+print(f"Number of doors: {car.doors}")
+print(f"Roof type: {car.roof}")
